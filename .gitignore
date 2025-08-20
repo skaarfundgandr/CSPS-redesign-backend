@@ -27,10 +27,12 @@ target/
 /.nb-gradle/
 build/
 !**/src/main/**/build/
-!**/src/test/**/build/
+
+
+!**/src/**/backend/resources/
 
 ### VS Code ###
 .vscode/
 
-### Application Props ###
 **/application.properties
+src/main/resources/application.properties
