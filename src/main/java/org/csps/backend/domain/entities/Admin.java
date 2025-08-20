@@ -18,6 +18,7 @@ public class Admin {
     @OneToOne
     @Id
     @MapsId
+    @Column(name = "user_id")
     private User user;
 
     @Enumerated(EnumType.STRING)
