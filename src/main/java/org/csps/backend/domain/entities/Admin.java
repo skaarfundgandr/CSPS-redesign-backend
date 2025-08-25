@@ -16,21 +16,13 @@ import org.csps.backend.domain.enums.AdminPosition;
 public class Admin {
 
     @Id
-    private Long userId;
+    private Long adminId;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    @MapsId
-    private User user;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false, unique = true)
-    private String username;
+    @JoinColumn(name = "user_account_id")
+    private UserAccount userAccount;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AdminPosition position;
-
 }

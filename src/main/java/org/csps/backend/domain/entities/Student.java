@@ -22,13 +22,7 @@ public class Student {
     @Column(nullable = false)
     private Byte yearLevel;
 
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false, unique = true)
-    private String username;
-
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "user_account_id")
+    private UserAccount userAccount;
 }
