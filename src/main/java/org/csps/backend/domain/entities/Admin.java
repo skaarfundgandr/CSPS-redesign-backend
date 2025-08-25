@@ -1,19 +1,11 @@
 package org.csps.backend.domain.entities;
 
-import org.csps.backend.domain.enums.AdminPosition;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.PrimaryKeyJoinColumn;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.csps.backend.domain.enums.AdminPosition;
 
 @Entity
 @Data
@@ -27,8 +19,15 @@ public class Admin {
     private Long userId;
 
     @OneToOne
-    @PrimaryKeyJoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id")
+    @MapsId
     private User user;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Column(nullable = false, unique = true)
+    private String username;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

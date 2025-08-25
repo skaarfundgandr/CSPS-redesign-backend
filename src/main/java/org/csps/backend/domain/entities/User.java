@@ -29,9 +29,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
-    
-    @Column(nullable = false)
-    private String username;
 
     @Column(nullable = false)
     private String firstName;
@@ -47,9 +44,6 @@ public class User {
     @Column(nullable = false)
     @Email(message = "Invalid email format")
     private String email;
-
-    @Column(nullable = false)
-    private String password;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
