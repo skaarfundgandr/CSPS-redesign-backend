@@ -1,12 +1,17 @@
 package org.csps.backend.domain.dtos.request;
 
-import jakarta.validation.constraints.*;
+import java.time.LocalDate;
+
+
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Past;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.csps.backend.domain.enums.UserRole;
-import java.time.LocalDate;
 
 // User for both creating and full updating
 @Data
@@ -14,9 +19,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class UserRequestDTO {
-
-    @NotNull(message = "User ID is required")
-    private Long userId;
 
     @NotBlank(message = "First name is required")
     @Size(max = 50, message = "First name must not exceed 50 characters")
@@ -37,6 +39,4 @@ public class UserRequestDTO {
     @Email(message = "Invalid email format")
     private String email;
 
-    @NotNull(message = "Role is required")
-    private UserRole role;
 }
