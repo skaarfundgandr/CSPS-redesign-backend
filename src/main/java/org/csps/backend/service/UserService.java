@@ -1,18 +1,16 @@
 package org.csps.backend.service;
 
-import org.csps.backend.domain.dtos.request.CreateUserDTO;
-import org.csps.backend.domain.dtos.request.UserPatchDTO;
+import org.csps.backend.domain.dtos.request.StudentRequestDTO;
 import org.csps.backend.domain.dtos.request.UserRequestDTO;
 import org.csps.backend.domain.dtos.response.UserResponseDTO;
-import org.csps.backend.domain.entities.User;
 
 import java.util.List;
 
+import org.csps.backend.domain.entities.UserAccount;
+
 public interface UserService {
-    User createUser(UserRequestDTO userRequestDTO);   // registration
+    UserAccount createUser(StudentRequestDTO student, UserRequestDTO userRequestDTO); 
     UserResponseDTO getUserById(Long userId);
     List<UserResponseDTO> getAllUsers();
-    UserResponseDTO patchUser(Long userId, UserPatchDTO userPatchDTO);
-    UserResponseDTO updateUser(Long userId, UserRequestDTO userRequestDTO);
-    void deleteUser(Long userId);
+
 }
