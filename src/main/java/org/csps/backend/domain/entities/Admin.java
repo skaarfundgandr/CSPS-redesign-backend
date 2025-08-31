@@ -16,6 +16,7 @@ import org.csps.backend.domain.enums.AdminPosition;
 public class Admin {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long adminId;
 
     @OneToOne
