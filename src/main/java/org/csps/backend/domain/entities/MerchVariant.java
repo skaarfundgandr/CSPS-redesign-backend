@@ -23,7 +23,7 @@ public class MerchVariant {
     @JoinColumn(name = "merch_id", nullable = false)
     private Merch merch;
 
-    // 🔑 Variant-specific attributes
+    // Variant-specific attributes
     private String color;
 
     @Enumerated(EnumType.STRING)

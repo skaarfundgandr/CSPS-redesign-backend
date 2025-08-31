@@ -14,5 +14,5 @@ import lombok.NoArgsConstructor;
 public class StudentResponseDTO {
     private String studentId;
     private Byte yearLevel;
-    private UserResponseDTO userResponseDTO;
+    private UserResponseDTO user;
 }

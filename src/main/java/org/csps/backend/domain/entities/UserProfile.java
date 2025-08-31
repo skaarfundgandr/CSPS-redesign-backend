@@ -2,15 +2,13 @@ package org.csps.backend.domain.entities;
 
 import java.util.Date;
 
-import org.csps.backend.domain.enums.UserRole;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -24,14 +22,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class User {
+public class UserProfile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="user_profile_id")
     private Long userId;
-    
-    @Column(nullable = false)
-    private String username;
 
     @Column(nullable = false)
     private String firstName;
@@ -48,10 +44,7 @@ public class User {
     @Email(message = "Invalid email format")
     private String email;
 
-    @Column(nullable = false)
-    private String password;
-
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private UserRole role;
+    // Optional: Add back-reference
+    @OneToOne(mappedBy = "userProfile", fetch = FetchType.LAZY)
+    private UserAccount userAccount;
 }

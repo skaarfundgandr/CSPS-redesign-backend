@@ -23,6 +23,6 @@ public class Student {
     private Byte yearLevel;
 
     @OneToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "user_account_id")
+    private UserAccount userAccount;
 }
