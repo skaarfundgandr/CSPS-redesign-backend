@@ -7,10 +7,10 @@ import org.csps.backend.domain.dtos.request.StudentRequestDTO;
 import org.csps.backend.domain.dtos.response.StudentResponseDTO;
 import org.csps.backend.domain.entities.Student;
 import org.csps.backend.domain.entities.UserAccount;
+import org.csps.backend.exception.InvalidStudentId;
 import org.csps.backend.exception.MissingFieldException;
 import org.csps.backend.exception.StudentNotFoundException;
 import org.csps.backend.exception.UserAlreadyExistsException;
-import org.csps.backend.exception.UserNotFoundException;
 import org.csps.backend.mapper.StudentMapper;
 import org.csps.backend.repository.StudentRepository;
 import org.csps.backend.service.StudentService;
@@ -37,6 +37,10 @@ public class StudentServiceImpl implements StudentService {
 
         if (studentId.isEmpty()) {
             throw new MissingFieldException("Username cannot be empty!");
+        }
+
+        if (studentId.length() != 8) {
+            throw new InvalidStudentId("Invalid Student Id");
         }
         
         
