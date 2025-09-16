@@ -3,7 +3,8 @@ package org.csps.backend.mapper;
 import org.csps.backend.domain.dtos.request.StudentRequestDTO;
 import org.csps.backend.domain.dtos.response.StudentResponseDTO;
 import org.csps.backend.domain.entities.Student;
-import org.mapstruct.*;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring", uses = {UserMapper.class})
 public interface StudentMapper {
